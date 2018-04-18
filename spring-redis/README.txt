@@ -1,0 +1,1 @@
+1.RedisTemplate可以注入到ValueOperations、ListOperations、SetOperations、ZSetOperations、GeoOperations是因为PropertyEditorSupport；

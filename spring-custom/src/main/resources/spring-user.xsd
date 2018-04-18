@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/spring-user"
+	xmlns:tns="http://www.example.org/spring-user" elementFormDefault="qualified">
+	<element name="user">
+		<complexType>
+			<attribute id="id" type="string"></attribute>
+			<attribute id="userName" type="string"></attribute>
+			<attribute id="password" type="string"></attribute>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<description>this is a description</description>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<alias name="mybean" alias="bean4" />
+
+	<bean id="myBean" name="bean1,bean2;bean3" class="com.zby.bean.MyBean"
+		abstract="false" autowire-candidate="default" autowire="no">
+		<description>this is a bean</description>
+		<meta key="myKey" value="myValue" />
+		<property name="intType" value="123"></property>
+		<property name="integerType" value="456"></property>
+		<property name="myBooleanType" value="false"></property>
+		<property name="stringType" value="aaa"></property>
+		<property name="birthday" value="1999-1-1 12:12:12"></property>
+	</bean>
+ 	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.zby.custom.String2DateConverter" />
+			</list>
+		</property>
+	</bean> 
+	
+		<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.Date" value="com.zby.custom.String2DatePropertyEditor" />
+			</map>
+		</property>
+	</bean>
+</beans>
